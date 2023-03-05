@@ -1,0 +1,55 @@
+{
+	"name": "fastify-sequelize",
+	"version": "1.0.0",
+	"description": "Boilerplate with includes sequelize auto models",
+	"main": "app.ts",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
+		"start": "npm run build:ts && fastify start -l info dist/app.js",
+		"build:ts": "tsc",
+		"watch:ts": "tsc -w",
+		"dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
+		"dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js",
+		"prepare": "husky install"
+	},
+	"keywords": [
+		"fastify",
+		"sequelize",
+		"typescript" 
+	],
+	"author": "ray",
+	"license": "ISC",
+	"dependencies": {
+		"@fastify/autoload": "^5.0.0",
+		"@fastify/cors": "^8.2.0",
+		"@fastify/env": "^4.2.0",
+		"@fastify/multipart": "^7.4.1",
+		"@fastify/sensible": "^5.0.0",
+		"@fastify/swagger": "^8.3.1",
+		"@fastify/swagger-ui": "^1.4.0",
+		"fastify": "^4.0.0",
+		"fastify-cli": "^5.7.1",
+		"fastify-env": "^2.2.0",
+		"fastify-plugin": "^4.0.0",
+		"fastify-sequelize": "^1.0.4",
+		"pg": "^8.9.0",
+		"sequelize": "^6.29.0"
+	},
+	"devDependencies": {
+		"@types/dotenv": "^8.2.0",
+		"@types/node": "^18.0.0",
+		"@types/tap": "^15.0.5",
+		"concurrently": "^7.0.0",
+		"dotenv": "^16.0.3",
+		"fastify-tsconfig": "^1.0.1",
+		"husky": "^8.0.0",
+		"pretty-quick": "^3.1.3",
+		"sequelize-auto": "^0.8.8",
+		"tap": "^16.1.0",
+		"ts-node": "^10.4.0",
+		"typescript": "^4.5.4"
+	}
+}
