@@ -63,6 +63,7 @@ const sequelizePlugin: FastifyPluginCallback<SequelizeOptions> = async (
     autoOptions
   );
   await auto.run();
+
   initModels(sequelize);
   fastify.decorate("sequelize", sequelize);
 };
