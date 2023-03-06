@@ -1,6 +1,5 @@
-# Prodkt
+# fastify-sequelize
 
-    Prodkt is an innovative application designed to improve the relationship between consumers and brands when it comes to product warranties and services. With this application, consumers can easily manage their product warranties and receive timely notifications regarding their service requirements, while brands can efficiently track and manage warranty claims.
 
 ## Available Scripts
 
