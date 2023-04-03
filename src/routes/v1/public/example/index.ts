@@ -5,13 +5,11 @@ const example: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
     "/",
     {
       schema: {
-        tags: ["Example"],
+        tags: ["EXAMPLE"],
       },
     },
     async function (request: any, reply) {
-      return reply.send({
-        message: "Good To GO 🥳! ",
-      });
+      return reply.send({});
     }
   );
 };

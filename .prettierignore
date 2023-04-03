@@ -3,3 +3,4 @@ dist
 test
 package.json
 package-lock.json
+src/models
