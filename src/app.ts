@@ -1,7 +1,10 @@
 import { join } from "path";
 import AutoLoad, { AutoloadPluginOptions } from "@fastify/autoload";
 import { FastifyPluginAsync } from "fastify";
-import routesV1 from "./routes/v1";
+import v1 from "./api/v1";
+import { cpus } from "os";
+
+process.env.UV_THREADPOOL_SIZE = String(cpus().length);
 
 export type AppOptions = {
   // Place your custom options for app below here.
@@ -28,7 +31,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
 
   // This loads all plugins defined in routes
   // define your routes in one of these
-  void fastify.register(routesV1);
+  void fastify.register(v1);
 };
 
 export default app;

@@ -1,0 +1,8 @@
+{
+  "logger": true,
+  "caseSensitive": false,
+  "ignoreTrailingSlash": true,
+  "bodyLimit": 1024,
+  "querystringParser": "simple",
+  "pluginTimeout": 10000
+}

@@ -1,7 +1,7 @@
 import { FastifyPluginCallback } from "fastify";
 import { Sequelize } from "sequelize";
 import fp from "fastify-plugin";
-import { initModels } from "../models/init-models";
+// import { initModels } from "../models/init-models";
 
 interface SequelizeOptions {
   database: string;
@@ -40,7 +40,7 @@ const sequelizePlugin: FastifyPluginCallback<SequelizeOptions> = async (
       console.error("Unable to connect to the database:", err);
     });
 
-  initModels(sequelize);
+  // initModels(sequelize);
   fastify.decorate("sequelize", sequelize);
 };
 

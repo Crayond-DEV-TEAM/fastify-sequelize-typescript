@@ -12,11 +12,11 @@
 	},
 	"scripts": {
 		"test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
-		"start": "npm run migrate && npm run seed && npm run build:ts && fastify start -l info dist/app.js",
+		"start": "npm run build:ts && fastify start -a '0.0.0.0' -l info dist/app.js",
 		"build:ts": "rm -rf dist && tsc",
 		"watch:ts": "tsc -w",
 		"dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
-		"dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js",
+		"dev:start": "fastify start  -a '0.0.0.0' --ignore-watch=.ts$ -w -l info -P dist/app.js",
 		"prepare": "husky install",
 		"model": "npx ts-node auto.ts",
 		"migrate":"npx prisma migrate deploy",
@@ -41,7 +41,6 @@
 		"@fastify/swagger": "^8.3.1",
 		"@fastify/swagger-ui": "^1.4.0",
 		"fastify": "^4.0.0",
-		"fastify-cli": "^5.7.1",
 		"fastify-env": "^2.2.0",
 		"fastify-plugin": "^4.0.0",
 		"fastify-sequelize": "^1.0.4",
@@ -49,6 +48,7 @@
 		"sequelize": "^6.29.0"
 	},
 	"devDependencies": {
+		"fastify-cli": "^5.7.1",
 		"@types/dotenv": "^8.2.0",
 		"@types/node": "^18.0.0",
 		"@types/tap": "^15.0.5",
