@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize";
 import { AutoOptions, SequelizeAuto } from "sequelize-auto";
-
+import { config } from "dotenv";
+config({ path: ".env" });
 const { DB_NAME, DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_DIALECT }: any =
   process.env;
 
@@ -31,11 +32,11 @@ async function main() {
     additional: {
       timestamps: false,
     },
-    noAlias: true,
+    noAlias: false,
     singularize: true,
     useDefine: false,
     lang: "ts",
-    skipTables: ["_prisma_migrations"],
+    skipTables: ["_prisma_migrations", "knex_migration"],
   };
   const auto = new SequelizeAuto(
     DB_NAME,

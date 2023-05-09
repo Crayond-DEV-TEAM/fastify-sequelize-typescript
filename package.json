@@ -1,7 +1,7 @@
 {
-	"name": "fastify-sequelize",
+	"name": "fastify-sequelize-ts",
 	"version": "1.0.0",
-	"description": "Boilerplate with includes sequelize auto models",
+	"description": "",
 	"main": "app.ts",
 	"directories": {
 		"test": "test"
@@ -18,7 +18,7 @@
 		"dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
 		"dev:start": "fastify start  -a '0.0.0.0' --ignore-watch=.ts$ -w -l info -P dist/app.js",
 		"prepare": "husky install",
-		"model": "npx ts-node auto.ts",
+		"model": "npx ts-node ./src/scripts/auto.ts",
 		"migrate":"npx prisma migrate deploy",
 		"seed":"npx prisma db seed",
 		"migrate:create":"npx prisma migrate dev --create-only"
