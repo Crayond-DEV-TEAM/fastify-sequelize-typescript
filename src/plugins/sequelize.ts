@@ -1,7 +1,9 @@
 import { FastifyPluginCallback } from "fastify";
 import { Sequelize } from "sequelize";
 import fp from "fastify-plugin";
-// import { initModels } from "../models/init-models";
+import { env } from "@config";
+
+const { DB_NAME, DB_USERNAME, DB_PASSWORD, DB_PORT, DB_HOST, DB_DIALECT } = env;
 
 interface SequelizeOptions {
   database: string;
@@ -22,9 +24,6 @@ const sequelizePlugin: FastifyPluginCallback<SequelizeOptions> = async (
   fastify: any,
   options
 ) => {
-  const { DB_NAME, DB_USERNAME, DB_PASSWORD, DB_PORT, DB_HOST, DB_DIALECT } =
-    fastify.config;
-
   const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
     logging: false,
     host: DB_HOST,
