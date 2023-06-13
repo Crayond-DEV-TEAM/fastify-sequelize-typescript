@@ -5,6 +5,7 @@ npm-debug.log*
 
 #variables
 .env
+thunder-tests
 
 # Runtime data
 pids
